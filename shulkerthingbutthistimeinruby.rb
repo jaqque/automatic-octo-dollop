@@ -27,10 +27,6 @@ def commify(number)
   number.to_s.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
 end
 
-if $stdin.tty?
-  print "Enter schematica-materials.txt line byline, or cut/paste the whole thing.\n"
-end
-
 format= "%20s%c  %6s %3s %3s %3s %3s\n"
 
 printf format,
