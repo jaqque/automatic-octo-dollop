@@ -5,25 +5,30 @@ def containers_in_count(total, size)
 end
 
 def get_stack_size(item)
-  return 0 if item == "Bedrock"
-  return 1 if item == "Water"
-  return 1 if item == "Lava"
-  64
+  return 0 if item == "Bedrock" # can't mine bedrock :D
+  return 1 if item == "Water" # unstackable
+  return 1 if item == "Lava"  # unstackable
+  64 # default stack size
+end
+
+def inventory_of_sc
+  27
 end
 
 def shulker_capacity
-  27 * $stack_size
+  inventory_of_sc * $stack_size
 end
 
 def sc_of_shulker_capacity
-  27 * shulker_capacity
+  inventory_of_sc * shulker_capacity
 end
 
 def dc_of_shulker_capacity
-  2 * sc_of_shulker_capacity
+  2 * sc_of_shulker_capacity # "2" means "double"!
 end
 
 def commify(number)
+  # cut/paste from https://codereview.stackexchange.com/questions/28054/separate-numbers-with-commas
   number.to_s.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
 end
 
