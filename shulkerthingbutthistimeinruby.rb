@@ -23,14 +23,20 @@ def dc_of_shulker_capacity
   2 * sc_of_shulker_capacity
 end
 
-printf '%20s  %3s %3s %3s %3s %3s%c',
+def commify(number)
+  number.to_s.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
+end
+
+format= "%20s%c  %6s %3s %3s %3s %3s\n"
+
+printf format,
   '',
+  ' ',
   'DCs',
   'SCs',
   'Shk',
   'Stc',
-  'Blk',
-  "\n"
+  'Blk'
 
 ARGF.each do |l|
   *name, count = l.split("\s")
@@ -44,12 +50,12 @@ ARGF.each do |l|
   shulker, remainder = containers_in_count( remainder, shulker_capacity)
   stacks, blocks = containers_in_count( remainder, $stack_size)
 
-  printf '%20s: %3s %3s %3s %3s %3s%c',
+  printf format,
     name,
-    dc,
+    ':',
+    commify(dc),
     sc,
     shulker,
     stacks,
-    blocks,
-    "\n"
+    blocks
 end
