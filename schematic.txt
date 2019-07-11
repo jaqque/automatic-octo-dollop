@@ -1,0 +1,14 @@
+Stone            12868
+Dirt               870
+Andesite           834
+Diorite            806
+Bedrock            769
+Granite            690
+Gravel             436
+Grass Block        256
+Grass              116
+Iron Ore           110
+Coal Ore            81
+Redstone Ore        28
+Gold Ore            28
+Double Tallgrass     2
