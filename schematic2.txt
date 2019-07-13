@@ -1,7 +1,0 @@
-Bedrock 9999999
-Stone 9999999
-Water 9999999
-Lava 9999999
-Feather 9999999
-jaqque is the best 2342
-invalid line because meh
