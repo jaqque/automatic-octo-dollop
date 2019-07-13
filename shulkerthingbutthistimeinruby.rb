@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+## vim:sw=2
 
 def containers_in_count(total, size)
   return total.to_i/size.to_i, total.to_i%size.to_i
@@ -32,7 +33,15 @@ def commify(number)
   number.to_s.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
 end
 
-format= "%20s%c  %6s %3s %3s %3s %3s\n"
+prices={}
+File.open('price-list.txt').each do |record|
+  *name, value = record.split("\s")
+  name=name.join(' ')
+
+  prices[name]=value
+end
+
+format= "%20s%c  %6s %3s %3s %3s %3s %8s %10s\n"
 
 printf format,
   '',
@@ -41,7 +50,9 @@ printf format,
   'SCs',
   'Shk',
   'Stc',
-  'Blk'
+  'Blk',
+  'TOTAL',
+  'VALUE'
 
 ARGF.each do |l|
   *name, count = l.split("\s")
@@ -55,12 +66,22 @@ ARGF.each do |l|
   shulker, remainder = containers_in_count( remainder, shulker_capacity)
   stacks, blocks = containers_in_count( remainder, $stack_size)
 
+  if prices.key?(name)
+    value=(count.to_i * prices[name].to_f + 0.5).to_i
+    value = value!=0 ? commify(value.to_s) + ' R' : 'worthless'
+  else
+    value = 'Unknown'
+  end
+
   printf format,
     name,
     ':',
-    commify(dc),
-    sc,
-    shulker,
-    stacks,
-    blocks
+    dc == 0 ? '' : commify(dc),
+    dc + sc == 0 ? '' : sc,
+    dc + sc + shulker == 0 ? '' : shulker,
+    dc + sc + shulker + stacks == 0 ? '' : stacks,
+    blocks,
+    commify(count),
+    value
+
 end

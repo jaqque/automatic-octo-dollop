@@ -1,0 +1,14 @@
+Stone            3
+Dirt             1
+Andesite         3
+Diorite          3
+Bedrock          0
+Granite          3
+Gravel           3
+Grass Block      1
+Grass            1
+Iron Ore         10
+Coal Ore         5
+Redstone Ore     10
+Gold Ore         70
+Double Tallgrass 1
