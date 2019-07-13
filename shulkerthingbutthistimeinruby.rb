@@ -54,6 +54,7 @@ printf format,
   'TOTAL',
   'VALUE'
 
+grand_total=0
 ARGF.each do |l|
   *name, count = l.split("\s")
   name=name.join(' ')
@@ -68,6 +69,7 @@ ARGF.each do |l|
 
   if prices.key?(name)
     value=(count.to_i * prices[name].to_f + 0.5).to_i
+    grand_total += value
     value = value!=0 ? commify(value.to_s) + ' R' : 'worthless'
   else
     value = 'Unknown'
@@ -85,3 +87,6 @@ ARGF.each do |l|
     value
 
 end
+
+printf format, '',' ','','','','','','','='*9
+printf format, '',' ','','','','','','TOTAL',commify(grand_total)
