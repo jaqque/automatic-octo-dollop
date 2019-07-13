@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-## vim:sw=2
+# vim:sw=2
 
 def containers_in_count(total, size)
   return total.to_i/size.to_i, total.to_i%size.to_i
@@ -7,8 +7,8 @@ end
 
 def get_stack_size(item)
   return 0 if item == "Bedrock" # can't mine bedrock :D
-  return 1 if item == "Water" # unstackable
-  return 1 if item == "Lava"  # unstackable
+  return 1 if item == "Water Bucket" # unstackable
+  return 1 if item == "Lava Bucket"  # unstackable
   64 # default stack size
 end
 
@@ -82,7 +82,7 @@ ARGF.each do |l|
     dc + sc == 0 ? '' : sc,
     dc + sc + shulker == 0 ? '' : shulker,
     dc + sc + shulker + stacks == 0 ? '' : stacks,
-    blocks,
+    $stack_size == 1 ? 'N/A': blocks,
     commify(count),
     value
 
