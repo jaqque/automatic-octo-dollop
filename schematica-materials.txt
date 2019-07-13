@@ -1,0 +1,18 @@
+Stone        10222
+Water Bucket  1281
+Bedrock        747
+Diorite        685
+Andesite       615
+Granite        387
+Gravel         344
+Dirt           316
+Sand           257
+Iron Ore       128
+Coal Ore       106
+Redstone Ore    46
+Clay            21
+Grass Block     15
+Sandstone       12
+Diamond Ore     10
+Grass            7
+Cobblestone      3

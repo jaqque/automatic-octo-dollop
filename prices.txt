@@ -1,0 +1,19 @@
+Stone 1 
+Dirt 1 
+Granite 2 
+Grass 2 
+Andesite 3 
+Diorite 3 
+Gravel 4 
+Grass Block 4 
+Double Tallgrass 4 
+Iron Ore 4 
+Coal Ore 9 
+Redstone Ore 22 
+Gold Ore 37
+Water Bucket 19
+Sand 5
+Clay 13
+Sandstone 3
+Diamond Ore 329
+Cobblestone 1
