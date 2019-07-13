@@ -1,6 +1,8 @@
-puts "oh hey i read the schematica-materials.txt file directly"
-puts "i hope it is a part of this repo, other wise bad things may happen"
+puts 'Oh hey i read the schematica-materials.txt file directly'
+puts 'I hope it is a part of this repo, otherwise bad things may happen'
 puts
-puts "Bad Things."
+puts 'Bad Things.'
+puts
 
-eval File.read("shulkerthingbutthistimeinruby.rb")
+ARGV.push('schematica-materials.txt')
+eval File.read('shulkerthingbutthistimeinruby.rb')
